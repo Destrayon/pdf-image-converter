@@ -15,6 +15,11 @@ def program():
         image = Image.open(item).convert('RGB')
         list_images.append(image)
 
+        isExist = os.path.exists(directory + "/output/")
+
+    if not isExist:
+        os.mkdir(directory + "/output/")
+
     list_images[0].save(directory + "/output/output.pdf", save_all=True, append_images=list_images[1:])
 
 program()
